@@ -1,11 +1,19 @@
 package program;
 
+import entities.BrickMap;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.*;
 
+// Initialize game elements,
+// set up the game loop,
+// handle input,
+// and draw the game.
 public class Application extends JFrame {
+
+    private BrickMap brickMap;
 
     public Application(){
         JButton startButton = new JButton("Start Game");
@@ -31,15 +39,18 @@ public class Application extends JFrame {
 
     }
 
-    private void showGameWindow(){
+    private void showGameWindow() {
         JFrame gameFrame = new JFrame();
-        gameFrame.setLayout(new BorderLayout());
-        gameFrame.setSize(400,400);
+        GamePanel gamePanel = new GamePanel();  // Custom JPanel where the game will be drawn
+
+        gameFrame.add(gamePanel);  // Add game panel to the frame
+        gameFrame.setSize(700, 600);  // Adjusted size to fit bricks
         gameFrame.setVisible(true);
         gameFrame.setLocationRelativeTo(null);
         gameFrame.setTitle("Brick Breaker's");
         gameFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
+
 }
 
 
